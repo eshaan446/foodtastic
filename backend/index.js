@@ -9,17 +9,15 @@ dotenv.config();
 mongoDB();
 
 app.use(express.json());
+app.use(cors());
+
 app.use('/api', require("./routes/CreateUser"));
 app.use('/api', require("./routes/DisplayData"));
 app.use('/api', require("./routes/OrderData"));
 
-// Set CORS headers after defining routes
 app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "https://foodtastic.onrender.com");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
+  res.header("Access-Control-Allow-Origin", "https://foodtastic.vercel.app");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
 
