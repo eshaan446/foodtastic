@@ -9,7 +9,7 @@ function Home() {
   const [foodItem, setFoodItem] = useState([])
   const [search,setSearch]=useState('');
   const loadData = async () => {
-    let response = await fetch("https://foodtastic.onrender.com/api/foodData", {
+    let response = await fetch("http://localhost:5000/api/foodData", {
       method: "POST",
       headers: {
         'Content-Type': 'application/json'
@@ -32,7 +32,7 @@ function Home() {
       <div id="carouselExampleFade" className="carousel slide carousel-fade " data-bs-ride="carousel" style={{ objectFit: "contain !important" }}>
 
         <div className="carousel-inner " id='carousel'>
-          <div class=" carousel-caption  " style={{ zIndex: "9" }}>
+          <div className=" carousel-caption  " style={{ zIndex: "9" }}>
             <div className=" d-flex justify-content-center">  {/* justify-content-center, copy this <form> from navbar for search box */}
               <input className="form-control me-2 w-75 bg-white text-dark" type="search" placeholder="Type in..." aria-label="Search" value={search} onChange={(e)=>{setSearch(e.target.value)}}/>
               <button className="btn text-white bg-success" type="submit">Search</button>
@@ -60,9 +60,9 @@ function Home() {
 
       <div className='container'>
         {
-          foodCat !== [] ? foodCat.map((data) => {
+          foodCat !== [] ? foodCat.map((data,ind) => {
             return (
-              <div className='row mb-3'>
+              <div className='row mb-3' key={ind}>
                 <div key={data._id} className='fs-3 m-3'>{data.CategoryName}</div>
                 <hr />
                 {foodItem !== [] ? foodItem.filter((item) => {

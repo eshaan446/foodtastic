@@ -7,7 +7,7 @@ function Signup() {
     const [credentials, setcredentials] = useState({ name: "", email: "", password: "", geolocation: "" })
     const handleSubmit = async (e) => {
         e.preventDefault(); //its a synthetic event (interview)
-        const response = await fetch("https://foodtastic.onrender.com/api/createuser", {
+        const response = await fetch("http://localhost:5000//api/createuser", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
