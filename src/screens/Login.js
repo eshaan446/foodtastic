@@ -9,7 +9,7 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault(); //its a synthetic event (interview)
     //console.log(JSON.stringify({ email: credentials.email, password: credentials.password }))
-    const response = await fetch("https://foodtastic.onrender.com//api/loginuser", {
+    const response = await fetch("https://foodtastic.onrender.com/api/loginuser", {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
